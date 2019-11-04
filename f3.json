@@ -1,0 +1,257 @@
+{
+        certificates": {
+		"key": "/etc/ssl/dv/server.key",
+		"cert": "/etc/ssl/dv/server.crt",
+		"ca": "/etc/ssl/dv/CA.crt"
+	},
+	"environment": "@environment-to-set@",
+	"server_root_path": "/var/www/html/",
+	"mysql_binary": "/usr/bin/mysql",
+	"mds": {
+		"request_scheme": "https",
+		"fqdn_or_ip": "@mds-server-fqdn@",
+		"debug_mode": false
+	},
+	"oneauth": {
+		"request_scheme": "https",
+		"fqdn_or_ip": "@oneauth-server-fqdn@",
+		"app_dir": "oneauth"
+	},
+	"dvs": {
+		"request_scheme": "https",
+		"fqdn_or_ip": "@dvs-server-fqdn@",
+		"app_dir": "dvs",
+		"access_token": "67a4a7869edd6008f2303c5c14e500019c81de0631aad5dd071b4cf992526ac9"
+	},
+	"digivalet_api": {
+		"request_scheme": "https",
+		"fqdn_or_ip": "@inpremise-his-server-fqdn@",
+		"app_dir": "@digivalet-api-folder-name@"
+	},
+	"digivalet_cloud_api": {
+		"request_scheme": "https",
+		"fqdn_or_ip": "@cloud-his-server-fqdn@",
+		"app_dir": "@digivalet-cloud-api-folder-name@"
+	},
+	"cms": {
+		"type_of_deployment": "cloud",
+		"request_scheme": "https",
+		"fqdn_or_ip": "@cloud-his-server-fqdn@",
+		"app_dir": "@cms-folder-name@",
+		"enable_demo_links": 1
+	},
+	"dashboard": {
+		"type_of_deployment": "in-premise",
+		"request_scheme": "https",
+		"fqdn_or_ip": "@inpremise-his-server-fqdn@",
+		"app_dir": "@dashboard-folder-name@"
+	},
+	"dv_services_inpremise": {
+		"request_scheme": "https",
+		"ws_scheme": "wss",
+		"fqdn_or_ip": "@cloud-his-server-fqdn@",
+		"app_dir": "@dv-services-api-folder-name@",
+		"is_proxy": 1,
+		"proxy": {
+			"dashboard": "node-dashboard",
+			"butler": "node-butler",
+			"core": "node-core",
+			"jasper": "jasperserver",
+			"http": {
+				"dashboard": "node-hdashboard",
+				"butler": "node-hbutler",
+				"core": "node-hcore"
+			}
+		},
+		"analytics": {
+			"writeTime": 1000,
+			"writeFrequency": 30000,
+			"enableMonitor": false
+		},
+		"dashboard": 8015,
+		"butler": 8016,
+		"core": 8018,
+		"analyticsFileWriteTime": 30000,
+		"requestCert": false,
+		"rejectUnauthorized": true,
+		"serverkey": "/etc/ssl/dv/server.key",
+		"servercert": "/etc/ssl/dv/server.crt",
+		"ca": "/etc/ssl/dv/CA.crt",
+		"messages": "1",
+		"events": "1",
+		"javaAPIs": {
+			"protocol": "https",
+			"fqdn": "@inpremise-his-server-fqdn@",
+			"port": "",
+			"timeout": 15000,
+			"urls": {
+				"movieSync": "dv_app_gateway/syncMovieContent",
+				"irdSync": "dv_app_posi/synchronize",
+				"guestFeedbackEmail": "dv_app_printmail/sendNotificationService"
+			}
+		},
+		"hotelProperties": {
+			"hotelId": "1",
+			"hotelCode": "11",
+			"defaultLangCode": "en",
+			"currency": " &#8377; ",
+			"messages": "1",
+			"events": "1"
+		},
+		"showTimeInPmsi": 0,
+		"checkIncheckOut": {
+			"protocol": "https",
+			"fqdn": "@inpremise-his-server-fqdn@",
+			"port": "",
+			"url": "dv_app_pmsi/checkinCheckout"
+		}
+	},
+	"dv_services_cloud": {
+		"request_scheme": "https",
+		"ws_scheme": "wss",
+		"fqdn_or_ip": "@cloud-his-server-fqdn@",
+		"app_dir": "@dv-services-cloud-api-folder-name@",
+		"is_proxy": 1,
+		"proxy": {
+			"core": "node-cloud-core",
+			"http": {
+				"core": "node-cloud-hcore"
+			}
+		},
+		"modules": {
+			"movies": {
+				"enable": true
+			}
+		},
+		"core": 8017,
+		"requestCert": false,
+		"rejectUnauthorized": true,
+		"sshPort": 42111
+	},
+	"printer_mailer": {
+		"request_scheme": "https",
+		"fqdn_or_ip": "@inpremise-his-server-fqdn@",
+		"app_dir": "dv_app_printmail"
+	},
+	"dv_service_gateway": {
+		"request_scheme": "https",
+		"fqdn_or_ip": "@inpremise-his-server-fqdn@",
+		"app_dir": "dv_app_gateway",
+		"api_request_time": 15000
+	},
+	"butler_call": {
+		"close_call_url": "https://@butler-his-server-fqdn@/dv_app_butler/callbutler"
+	},
+	"digisteward": {
+		"request_scheme": "https",
+		"fqdn_or_ip": "@digisteward-his-server-fqdn@",
+		"app_dir": "@digisteward-folder-name@"
+	},
+	"sync_manager": {
+		"cloud_to_inpremise": {
+			"user": "sync_cloud",
+			"privateKey": "/etc/opt/ident/sync_cloud/id_rsa"
+		},
+		"inpremise_to_cloud": {
+			"user": "sync_cloud",
+			"privateKey": "/etc/opt/ident/sync_cloud/id_rsa"
+		}
+	},
+	"zigbee_lock_address": {
+		"url": "https://@inpremise-his-server-fqdn@/dv_app_lock/",
+		"port": "443"
+	},
+	"analytic_server": {
+		"request_scheme": "https",
+		"fqdn_or_ip": "@analytics-his-server-fqdn@",
+		"app_dir": "mars_api",
+		"elastic_search": 9200,
+		"port": 8000,
+		"username": "@analytics-his-server-username@",
+		"password": "@analytics-his-server-password@",
+		"db_monitor": {
+			"hours": "*",
+			"minutes": "*/5"
+		},
+		"jasper": {
+			"protocol": "https",
+			"host": "@jasper-his-server-fqdn@",
+			"port": 8021,
+			"username": "jasperadmin",
+			"password": "jasperadmin",
+			"report": {
+				"name": "@report-name@",
+				"type": "pdf",
+				"dir": "@report-directory@"
+			}
+		}
+	},
+	"integration": {
+		"number_of_backups": 7,
+		"properties": {
+			"enable": 0,
+			"integration_type": "zineone",
+			"message_template_path": "/assets/uploads/communication_center"
+		}
+	},
+	"auditLog": {
+		"enable": false,
+		"logDir": "/var/www/html/auditLog",
+		"logFile": "audit.json"
+	},
+	"cleanupCron": {
+		"enable": true,
+		"logDir": "/var/www/html/cleanupCron",
+		"logFile": "cleanupCron.json"
+	},
+	"pmsi_message": {
+		"enable": 1,
+		"properties": {
+			"message_template_path": "/assets/uploads/communication_center"
+		}
+	},
+	"hdvalet": {
+		"request_scheme": "http",
+		"port": 8014,
+		"fqdn_or_ip": "localhost",
+		"menuItems": [
+			"tvfeature",
+			"promotionsfeature",
+			"message_feature"
+		],
+		"menuItemsMapping": {
+			"tv": "menu-1",
+			"movies": "menu-4",
+			"roomservice": "menu-5",
+			"spa": "menu-6",
+			"restaurant": "menu-7",
+			"promotions": "menu-2",
+			"messages": "menu-3",
+			"folio": "menu-9",
+			"deviceStreaming": "menu-8"
+		},
+		"player": {
+			"request_scheme": "ws",
+			"fqdn_or_ip": "localhost",
+			"port": 16786
+		},
+		"javaAPIs": {
+			"request_scheme": "http",
+			"fqdn_or_ip": "localhost",
+			"port": 16787
+		},
+		"xPlayer": {
+			"request_scheme": "http",
+			"fqdn_or_ip": "localhost",
+			"port": 9090
+		}
+	},
+	"ads": {
+		"enable": 1,
+		"fqdn_or_ip": "ldapstg.okadamanila.com",
+		"username": "cn=DigiValet,OU=QA Service Accounts,dc=tgqa,dc=com",
+		"password": "Tiger-123",
+		"ad_server_base_dn": "cn=users,dc=tgqa,dc=com"
+	}
+
+}

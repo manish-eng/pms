@@ -1,0 +1,3 @@
+mani=33333
+kara=iiii
+manish=1111

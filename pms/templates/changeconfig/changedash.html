@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+
+<html lang="en" dir="ltr">
+<head>
+ <meta charset="utf-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+ <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
+    <body>
+        <div class="card" style="width:800px;margin: 0 auto;float: none;margin-bottom: 10px;"> 
+            <div class="card-body">
+                <a href="/"><b>HOME</b></a>
+                <a href="/changeconfig/app_file/" style="float: right;">app-config.json</a>
+                <div class="card bg-light">
+                    <div class="container" style="text-align: center">
+                      <h2 style="text-align:center; background-color: LightGray;">Change app-config File</h2>
+                      <div style="padding-top: 40px;"></div>
+                      <form action="{% url 'diff_show' %}" method="POST" style="text-align: center; display: inline-block;">
+                        {% csrf_token %}
+                        {% comment %} {{ form.as_p }} {% endcomment %}
+                        <table>
+                        <tr>
+                        {{form.as_table}}
+                        </tr>
+                        </table>
+                        <div style="padding-top: 40px;"></div>
+                        <button type="submit">Change</button><br>
+                        
+                        </form>
+                       <div style="height: 20px;">  
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  </div>
+                  <div class="card" style="width:800px;margin: 0 auto;float: none;margin-bottom: 10px;"> 
+                    <div class="card-body">
+                       
+                        <div class="card bg-light">
+                            <div class="container" style="text-align: center">
+                              <p style="color: red"> {{ignore}}</p>
+                              <p style="color: green">{{success}}</p>
+
+                             </div>
+                            </div>
+                              </div>
+                              </div>
+                </body>
+</html>

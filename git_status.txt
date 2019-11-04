@@ -1,0 +1,3 @@
+From http://192.168.0.66:7990/scm/d5/uatblue-dv5
+ * branch            HEAD       -> FETCH_HEAD
+Already up-to-date.
